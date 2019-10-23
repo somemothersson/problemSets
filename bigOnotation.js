@@ -31,14 +31,31 @@ constantTime()
 
 
 //linear time: 0(n)
-const linearTime = () => {
+const linearTime = (n) => {
     
     let i = 0;
   
     do {
       i = i + 1;
-    } while (i < 11);
+    } while (i < n);
     console.log(i);
+
+    do {
+        i = i + 3;
+      } while (i < n);
+      console.log(i);
+
+
   };
-  linearTime()
-  
+  linearTime(20)
+
+const quadraticTime = (n) => {
+    for (let i = 0; i < n; i=i+1){
+        for (let j = 0; j < n; j=j+1){
+            
+        }
+    }
+
+
+}  
+quadraticTime(25)
