@@ -27,35 +27,27 @@ const constantTime = () => {
   } while (i < 11);
   console.log(i);
 };
-constantTime()
-
+constantTime();
 
 //linear time: 0(n)
-const linearTime = (n) => {
-    
-    let i = 0;
-  
-    do {
-      i = i + 1;
-    } while (i < n);
-    console.log(i);
+const linearTime = n => {
+  let i = 0;
 
-    do {
-        i = i + 3;
-      } while (i < n);
-      console.log(i);
+  do {
+    i = i + 1;
+  } while (i < n);
+  console.log(i);
 
-
-  };
-  linearTime(20)
+  do {
+    i = i + 3;
+  } while (i < n);
+  console.log(i / 3);
+};
+linearTime(20);
 
 const quadraticTime = (n) => {
-    for (let i = 0; i < n; i=i+1){
-        for (let j = 0; j < n; j=j+1){
-            
-        }
-    }
-
-
-}  
-quadraticTime(25)
+  for (let i = 0; i < n; i = i + 1) {
+    for (let j = 0; j < n; j = j + 1) {}
+  }
+};
+quadraticTime(25);
