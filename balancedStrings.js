@@ -9,10 +9,24 @@ Return the maximum amount of splitted balanced strings.
 
 var balancedString = (s) => {
    
-    // split the string into an array
-    let arry = s.split("")
-    console.log(arry)
-    if (arry[0] === arry [1])
+    var count = 0
+   // loop array
+   let array = s.split('')
+
+   let shift = array.shift(2)
+
+   console.log(shift)
+
+   
+//    let storage = []
+//    console.log(array)
+//    for (let i=0; i <array.length; i++){
+      
+       
+      
+//    }
+//    console.log(count)
+//    console.log(`storage: ${storage}`)
 
 }
 
