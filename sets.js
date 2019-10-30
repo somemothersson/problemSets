@@ -41,7 +41,7 @@ function mySet() {
         // Check if element is in the collection
         if(this.has(element)) {
             // determine the index of the element
-            index = collecntion.indexOf(element)
+            index = collection.indexOf(element)
             // remove with splice
             collection.splice(index,1)
             return true
@@ -70,11 +70,77 @@ function mySet() {
         secondSet.forEach(function(e){
             unionSet.add(e)
         })
+        return unionSet
     }
 
     // this method will return the intersection of two sets as a new set
     this.intersection = function(otherSet) {
-        var intersection
+        // make a new set
+        var intersectionSet = new mySet()
+        // get all the values in teh first set
+        var firstSet = this.values()
+        // check if the first set has the value
+        firstSet.forEach(function(e){
+            if(otherSet.has(e)) {
+                intersectionSet.add(e)
+            }
+        })
+        // all the items in both set
+        return intersectionSet
     }
 
+    // this method will return the difference of the two sets as a new set
+    // all the items in one set but not another
+    this.difference = function(otherSet){
+        var differenceSet = new Set()
+        var firstSet = this.values()
+        firstSet.forEach(function(e){
+            if(!otherSet.has(e)) {
+                differenceSet.add(e)
+            }
+        })
+        return differenceSet
+    }
+   // this method will test if the set is a subset of a different set
+   // test if the firstSet is completely contained in the second set
+   this.subset = function(otherSet) {
+       var firstSet = this.values()
+       // every will test if every element the firstset pass this function
+       // are all the elements in the firstset in the second set
+       return firstSet.every(function(value){
+           return otherSet.has(value)
+       })
+   }
+    
+
 }
+
+var setA = new mySet()
+var setB = new mySet()
+setA.add("a")
+setB.add("b")
+setB.add("c")
+setB.add("a")
+setB.add("d")
+// do the values in set a match set b = true
+console.log(setA.subset(setB))
+// the only value in set a and b = "a"
+console.log(setA.intersection(setB).values())
+
+console.log(setB.difference(setA).values())
+
+var setC = new Set()
+var setD = new Set()
+setC.add("a")
+setD.add("b")
+setD.add("c")
+setD.add("a")
+setD.add("d")
+// values in setD
+console.log(setD.values())
+// remove a from set d
+setD.delete("a")
+// does setD have a = false
+console.log(setD.has("a"))
+
+
